@@ -3,13 +3,16 @@
         <title>WebCamera</title>
                 <style>
                     .ar-video{width:100%;height:100vh}
+                    .btn-container{    /* text-align: center; */ position: absolute; bottom: -25px; margin: 0 auto; background: rgba(255, 255, 255, 0.45098039215686275);padding: 10px; width: 100%; text-align: -webkit-center;}
+                    .btn{display: block; background-color: #784e98; text-decoration: none; color: #fff;cursor: pointer;  box-shadow: 0px -2px 10px #000;   padding: 10px;   border-radius: 10px;width:100px;}                    
                 </style>
     </head>
     <body>
-            <video class="ar-video" id="video" width="640" height="480" autoplay></video>
-            <button id="snap">Snap Photo</button>
-            <canvas id="canvas" width="640" height="480"></canvas>
-            <a id="download">Download</a>
+            <video class="ar-video" id="video" width="640" height="480" autoplay></video>            
+            <canvas id="canvas" width="640" height="480" style="display:none"></canvas>
+            <div class='btn-container'>            
+            <a class='btn' id="download">Snap/Download</a>
+            </div>
     </body>
     <script>
             // Grab elements, create settings, etc.
@@ -22,10 +25,11 @@
         
         // Trigger photo take
         document.getElementById("snap").addEventListener("click", function() {
-            context.drawImage(video, 0, 0, 640, 480);
+            
         });
         document.getElementById('download').addEventListener('click', function() {
-        downloadCanvas(this, 'canvas', new Date().toJSON());
+        context.drawImage(video, 0, 0, 640, 480);
+        downloadCanvas(this, 'canvas', new Date().toJSON()+".png");
         }, false);
                 
             // Get access to the camera!
