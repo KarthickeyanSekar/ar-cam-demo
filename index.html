@@ -1,7 +1,14 @@
 <html>
     <head>
         <title>WebCamera</title>
-        <script>
+        
+    </head>
+    <body>
+            <video id="video" width="640" height="480" autoplay></video>
+            <button id="snap">Snap Photo</button>
+            <canvas id="canvas" width="640" height="480"></canvas><button>Download<Button>
+    </body>
+    <script>
             // Grab elements, create settings, etc.
             var video = document.getElementById('video');
 
@@ -33,10 +40,4 @@
             }
             */
         </script>
-    </head>
-    <body>
-            <video id="video" width="640" height="480" autoplay></video>
-            <button id="snap">Snap Photo</button>
-            <canvas id="canvas" width="640" height="480"></canvas><button>Download<Button>
-    </body>
 </html>
